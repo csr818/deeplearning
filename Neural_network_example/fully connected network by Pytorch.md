@@ -1,15 +1,25 @@
-"""
-A program to realize a simple fully connected neural network
-using Pytorch library. Refer to Aladdin's codes on YouTube.
-The website link is https://www.youtube.com/watch?v=Jy4wM2X21u0.
+# fully connected network by Pytorch 
 
-Programmed by csr.
-* 2024-01-11: Initial version
+## 1. basic structure
 
-Try different optimizer, finds that Adam performs better than SGD
-Adam accuracy: around 97%
-SGD accuracy: around 85%
-"""
+imports--create network--set device(cuda or cpu)--hyperparameter--load data--initialize network--loss and optimizer--train--check accuracy
+
+## 2. functions import from 
+
+- `import torch.nn as nn` loss functions like crossentropyloss, mse
+- `import torch.nn.functional as F` activations like relu, sigmoid, gelu
+- `import torch.optim as optim` optimizers like Adam, SGD
+
+## 3. other imports 
+
+- `import torchvision.datasets as datasets` gets datasets from torchvision 
+- `import torchvision.transforms as transforms` transforms make PIL images to tensor 
+- `from torch.utils.data import DataLoader` generate batch data for mini-batch train 
+- `from tqdm import tqdm` accept a iterator to show the progress bar
+
+## 4. read codes for deep comprehension
+
+```python 
 # Imports
 import torch
 import torch.nn as nn  # inner network modules and loss functions
@@ -135,3 +145,5 @@ print(f"Accuracy on training set: {check_accuracy(train_loader, model) * 100:.2f
 print(f"Accuracy on test set: {check_accuracy(test_loader, model) * 100:.2f}")
 # save the parameter state directory
 torch.save(model.state_dict(), 'save/fullyNet_model.pth')
+```
+
