@@ -104,7 +104,7 @@ for epoch in range(num_epochs):
 
 # check accuracy on train&test dataset, see how good the model is
 def check_accuracy(loader, model):
-    # check the loader.dataset is train or test 
+    # check the loader.dataset is train or test
     if loader.dataset.train:
         print("Checking accuracy on train data")
     else:
@@ -125,7 +125,7 @@ def check_accuracy(loader, model):
             _, predictions = scores.max(1)
             num_correct += (predictions == y).sum()
             num_samples += predictions.size(0)
-    # print(f"Got {num_correct}/{num_samples} with accuracy {100.0 * num_correct / num_samples : .2f}")
+    print(f"Got {num_correct}/{num_samples} with accuracy {100.0 * num_correct / num_samples : .2f}")
     model.train()
     return num_correct / num_samples
 
